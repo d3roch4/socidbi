@@ -52,4 +52,5 @@ ExternalProject_Add (
         "-DSOCI_TESTS=OFF"
         "-DSOCI_STATIC=OFF")
 set_target_properties(soci_ PROPERTIES POSITION_INDEPENDENT_CODE ON)    
-add_dependencies(${PROJECT_NAME} soci_)
+add_dependencies(${PROJECT_NAME} soci_) 
+add_dependencies(${PROJECT_NAME} jsoncpp_)
