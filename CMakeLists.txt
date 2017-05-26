@@ -43,7 +43,9 @@ set(${PROJECT_NAME}_LIBRARY_DIRS
 ExternalProject_Add (
     soci_
     URL  "https://github.com/SOCI/soci/archive/master.zip"
-    CMAKE_ARGS ${CMAKE_ARGS_DEPS}
+    CMAKE_ARGS 
+        "-DCMAKE_INSTALL_PREFIX=${CMAKE_INSTALL_PREFIX}"
+        "-DCMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE}"
         "-DSOCI_CORE_TARGET_OUTPUT_NAME=soci_core"
         "-DSOCI_TESTS=OFF"
         "-DSOCI_STATIC=OFF")
