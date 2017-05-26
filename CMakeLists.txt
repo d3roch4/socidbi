@@ -39,10 +39,12 @@ set(${PROJECT_NAME}_LIBRARY_DIRS
                     ${CMAKE_INSTALL_PREFIX}/lib
                     ${CMAKE_INSTALL_PREFIX}/lib64
     CACHE INTERNAL "${PROJECT_NAME}: Library Directories" FORCE)
-    
+  
+  
+include(ExternalProject)
 ExternalProject_Add (
     soci_
-    URL  "https://github.com/SOCI/soci/archive/master.zip"
+    URL  "https://github.com/SOCI/soci/archive/release/3.2.zip"
     CMAKE_ARGS 
         "-DCMAKE_INSTALL_PREFIX=${CMAKE_INSTALL_PREFIX}"
         "-DCMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE}"
