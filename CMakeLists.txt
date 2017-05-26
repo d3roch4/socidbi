@@ -39,4 +39,13 @@ set(${PROJECT_NAME}_LIBRARY_DIRS
                     ${CMAKE_INSTALL_PREFIX}/lib
                     ${CMAKE_INSTALL_PREFIX}/lib64
     CACHE INTERNAL "${PROJECT_NAME}: Library Directories" FORCE)
-        
+    
+ExternalProject_Add (
+    soci_
+    URL  "https://github.com/SOCI/soci/archive/master.zip"
+    CMAKE_ARGS ${CMAKE_ARGS_DEPS}
+        "-DSOCI_CORE_TARGET_OUTPUT_NAME=soci_core"
+        "-DSOCI_TESTS=OFF"
+        "-DSOCI_STATIC=OFF")
+set_target_properties(soci_ PROPERTIES POSITION_INDEPENDENT_CODE ON)    
+add_dependencies(${PROJECT_NAME} soci_)
